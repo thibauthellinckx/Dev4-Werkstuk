@@ -76,3 +76,41 @@ function ViewAllGames() {
     }
     console.log("all games:", TotalGames);
 }
+
+function AdvonutreArray() {
+    const AllGames = Iterator(0, games.length, 1, games);
+    let TotalAdvontureGames = [];
+    let result = AllGames.next();
+
+
+    while (!result.done) {
+
+        if (result.genre == "adventure") {
+            TotalAdvontureGames.push(result);
+        }
+
+        result = AllGames.next();
+    }
+
+    console.log("all adventure games:", TotalAdvontureGames);
+
+
+}
+
+function HorrorArray() {
+    const AllGames = Iterator(0, games.length, 1, games);
+    let TotalHorrorGames = [];
+    let result = AllGames.next();
+
+
+    while (!result.done) {
+
+        if (result.genre == "horror") {
+            TotalHorrorGames.push(result);
+        }
+
+        result = AllGames.next();
+    }
+
+    console.log("all Horror games:", TotalHorrorGames);
+}
