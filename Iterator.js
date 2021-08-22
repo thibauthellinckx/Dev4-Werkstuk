@@ -59,3 +59,20 @@ function Iterator(start, end, step, game) {
     };
     return gameIterator;
 }
+
+function ViewAllGames() {
+    const AllGames = Iterator(0, games.length, 1, games);
+    let TotalGames = [];
+    let result = AllGames.next();
+
+
+    while (!result.done) {
+
+    
+        TotalGames.push(result);
+        
+
+        result = AllGames.next();
+    }
+    console.log("all games:", TotalGames);
+}
