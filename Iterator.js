@@ -114,3 +114,34 @@ function HorrorArray() {
 
     console.log("all Horror games:", TotalHorrorGames);
 }
+
+function selectGame(researchedGame) {
+    const List = Iterator(0, 8, 1, games);
+    let result = List.next();
+    let searchGame;
+    let selectedGame = researchedGame;
+
+
+    while (!result.done) {
+        if (result.name == selectedGame) {
+            searchGame = result;
+            console.log(`Selected Game:`, searchGame);
+        } else if (searchGame == null) {
+            console.log("no game found");
+
+        }
+
+        result = List.next();
+    }
+
+}
+
+
+function CallFunctions(){
+    ViewAllGames();
+    AdvonutreArray();
+    HorrorArray();
+    selectGame("Zombie Raid");
+}
+
+CallFunctions();
