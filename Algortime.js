@@ -61,3 +61,23 @@ function quickSortNames(array) {
     
     return quickSortNames(Lowest).concat(pivot, quickSortNames(Highest));
 }
+
+function quickSortRating(array) {
+    if (array.length < 1) {
+        return array;
+    }
+    let pivot = array[0];
+    let pivotrating = pivot.rating;
+    let Lowest = [];
+    let Highest = [];
+
+    for (i = 1; i < array.length; i++) {
+        const value = array[i];
+        if (value.rating < pivotrating) {
+            Highest.push(array[i]);
+        } else {
+            Lowest.push(array[i]);
+        }
+    }
+    return quickSortRating(Lowest).concat(pivot, quickSortRating(Highest));
+}
