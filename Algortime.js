@@ -81,3 +81,23 @@ function quickSortRating(array) {
     }
     return quickSortRating(Lowest).concat(pivot, quickSortRating(Highest));
 }
+
+function quickSortGenres(array) {
+    if (array.length < 1) {
+        return array;
+    }
+    let pivot = array[0];
+    let genrepivot = pivot.genre;
+    let Lowest = [];
+    let Highest = [];
+
+    for (i = 1; i < array.length; i++) {
+        const value = array[i];
+        if (value.genre > genrepivot) {
+            Highest.push(array[i]);
+        } else {
+            Lowest.push(array[i]);
+        }
+    }
+    return quickSortGenres(Lowest).concat(pivot, quickSortGenres(Highest));
+}
