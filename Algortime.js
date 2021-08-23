@@ -101,3 +101,11 @@ function quickSortGenres(array) {
     }
     return quickSortGenres(Lowest).concat(pivot, quickSortGenres(Highest));
 }
+
+function CallFunctions() {
+    console.log("Sort via Rating Highest to lowest: ", quickSortRating(games));
+    console.log("Sort via Names Alphabetically: ", quickSortNames(games));
+    console.log("Sort via Genres: ", quickSortGenres(games));
+}
+
+CallFunctions();
