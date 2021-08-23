@@ -39,4 +39,25 @@ const games = [{
 }];
 
 
+function quickSortNames(array) {
+    // console.log(array);
+    if(array.length < 1){
+        return array;
+    }
 
+    let pivot = array[0];
+    let namepivot = pivot.name;
+    let Lowest = [];
+    let Highest = [];
+
+    for (i = 1; i < array.length; i++) {
+        const value = array[i];
+        if (value.name > namepivot) {
+            Highest.push(array[i]);
+        } else {
+            Lowest.push(array[i]);
+        }
+    }
+    
+    return quickSortNames(Lowest).concat(pivot, quickSortNames(Highest));
+}
