@@ -32,7 +32,7 @@ const games = [{
     genre: "adventure"
 }];
 
-function Iterator(start, end, step, game) {
+function Iterator(start, end, step, game) { 
     let nextIndex = start;
     let iterationCount = 0;
 
@@ -58,10 +58,10 @@ function Iterator(start, end, step, game) {
         }
     };
     return gameIterator;
-}
+} // Pure Function
 
 function ViewAllGames() {
-    const AllGames = Iterator(0, games.length, 1, games);
+    const AllGames = Iterator(0, games.length, 1, games); // impure because it uses another function outside the scope
     let TotalGames = [];
     let result = AllGames.next();
 
@@ -74,11 +74,11 @@ function ViewAllGames() {
 
         result = AllGames.next();
     }
-    console.log("all games:", TotalGames);
-}
+    console.log("all games:", TotalGames); // Side effect to log the list
+} // Impure Function
 
 function AdvonutreArray() {
-    const AllGames = Iterator(0, games.length, 1, games);
+    const AllGames = Iterator(0, games.length, 1, games);// impure because it uses another function outside the scope
     let TotalAdvontureGames = [];
     let result = AllGames.next();
 
@@ -92,13 +92,13 @@ function AdvonutreArray() {
         result = AllGames.next();
     }
 
-    console.log("all adventure games:", TotalAdvontureGames);
+    console.log("all adventure games:", TotalAdvontureGames); // Side effect to log the list
 
 
-}
+}// Impure Function
 
 function HorrorArray() {
-    const AllGames = Iterator(0, games.length, 1, games);
+    const AllGames = Iterator(0, games.length, 1, games);// impure because it uses another function outside the scope
     let TotalHorrorGames = [];
     let result = AllGames.next();
 
@@ -112,11 +112,11 @@ function HorrorArray() {
         result = AllGames.next();
     }
 
-    console.log("all Horror games:", TotalHorrorGames);
-}
+    console.log("all Horror games:", TotalHorrorGames);// Side effect to log the list
+}// Impure Function
 
 function selectGame(researchedGame) {
-    const List = Iterator(0, 8, 1, games);
+    const List = Iterator(0, games.length, 1, games);// impure because it uses another function outside the scope
     let result = List.next();
     let searchGame;
     let selectedGame = researchedGame;
@@ -125,7 +125,7 @@ function selectGame(researchedGame) {
     while (!result.done) {
         if (result.name == selectedGame) {
             searchGame = result;
-            console.log(`Selected Game:`, searchGame);
+            console.log(`Selected Game:`, searchGame);// Side effect to log the list
         } else if (searchGame == null) {
             console.log("no game found");
 
@@ -134,7 +134,7 @@ function selectGame(researchedGame) {
         result = List.next();
     }
 
-}
+}// Impure Function
 
 
 function CallFunctions(){
@@ -142,6 +142,6 @@ function CallFunctions(){
     AdvonutreArray();
     HorrorArray();
     selectGame("Zombie Raid");
-}
+}// Impure Function
 
 CallFunctions();
