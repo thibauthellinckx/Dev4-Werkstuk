@@ -60,7 +60,7 @@ function quickSortNames(array) {
     }
     
     return quickSortNames(Lowest).concat(pivot, quickSortNames(Highest));
-}
+}// pure function
 
 function quickSortRating(array) {
     if (array.length < 1) {
@@ -80,7 +80,7 @@ function quickSortRating(array) {
         }
     }
     return quickSortRating(Lowest).concat(pivot, quickSortRating(Highest));
-}
+}// pure function
 
 function quickSortGenres(array) {
     if (array.length < 1) {
@@ -100,12 +100,12 @@ function quickSortGenres(array) {
         }
     }
     return quickSortGenres(Lowest).concat(pivot, quickSortGenres(Highest));
-}
+} // pure function
 
 function CallFunctions() {
     console.log("Sort via Rating Highest to lowest: ", quickSortRating(games));
     console.log("Sort via Names Alphabetically: ", quickSortNames(games));
     console.log("Sort via Genres: ", quickSortGenres(games));
-}
+} // impure function
 
 CallFunctions();
